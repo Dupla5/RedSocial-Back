@@ -1,26 +1,26 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 const cors = require('cors');
+const app = express();
 
-var inicioRouter = require('./routes/inicio');
-var usuarioRouter = require('./routes/usuario');
-
-var app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-app.set('views', path.join(__dirname, 'views'));
-app.use(cors({origin: '*'}));
+app.set('config', path.join(__dirname, 'config'));
+app.use(cors({ origin: '*',allowHeader:['Content-Type','Authorization']}));
+
+//Rutas
+let postsRoutes = require('./routes/posts.route');
+let usersRoutes = require('./routes/users.route');
 
 
-app.use('/inicio', inicioRouter);
-app.use('/usuario', usuarioRouter);
+app.use('/users', usersRoutes);
+app.use('/posts', postsRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

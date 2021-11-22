@@ -2,7 +2,7 @@ const mysql = require('mysql');
 const {promisify} = require('util');
 const {database} = require('./keys');
 
-const pool = mysql.createPool(database);
+const pool = mysql.createPool(database);  //Creamos un grupo de conexiones
 
 pool.getConnection((err,connection) => {
     if(err){
