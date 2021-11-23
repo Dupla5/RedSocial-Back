@@ -24,7 +24,7 @@ CREATE TABLE Usuarios (
 INSERT INTO Usuarios (Nombre,A_Paterno,A_Materno,Ciudad,Pais,Edad,Email,Pwd) VALUES
 ("Marcos","Miranda","Bravo","Ecatepec","Mexico",25,"markuzemb18@gmail.com","12345");
 
-SELECT * FROM Posts;
+SELECT * FROM Usuarios;
 
 CREATE TABLE Hobbies (
 	id_Hobbies INT AUTO_INCREMENT PRIMARY KEY,
@@ -63,7 +63,7 @@ CREATE TABLE Posts (
   CONSTRAINT FKUsuario_posts FOREIGN KEY (id_Usuario) REFERENCES Usuarios(id_Usuario) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-SELECT * FROM Posts;
+SELECT * FROM Comentarios;
 
 CREATE TABLE Comentarios (
   id_Comentario INT AUTO_INCREMENT PRIMARY KEY,
@@ -82,8 +82,8 @@ ALTER TABLE Usuarios CHANGE COLUMN Img_Perfil Img_Perfil blob;
 ALTER TABLE Usuarios CHANGE COLUMN Perfil_Linkedin Perfil_Linkedin VARCHAR(40);
 
 DESCRIBE Usuarios;
-
-
+SELECT c.Post_Id, c.Comentario , c.FechaDePublicacion, c.id_Usuario , u.Nombre, u.A_Paterno FROM Comentarios AS c INNER JOIN Usuarios AS u ON c.id_Usuario = u.id_Usuario WHERE c.Post_Id = 1;
+SELECT * FROM Comentarios WHERE Post_Id = 1;
 
 #ENGINE=InnoDB DEFAULT CHARSET=utf8
 #create_at TIMESTAMP NOT NULL DEFAULT current_timestamp,
