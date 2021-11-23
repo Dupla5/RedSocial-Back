@@ -34,8 +34,8 @@ exports.register = (req,res,next)=>{
 exports.login = (req, res, next) => {
     //Area de validación
     const data = {
-        Email: req.body.email,
-        Pwd: req.body.pwd
+        email: req.body.email,
+        pwd: req.body.pwd
     };
 
     usersService.login(data, (error, results) => {

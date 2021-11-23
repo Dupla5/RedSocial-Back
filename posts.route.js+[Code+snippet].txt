@@ -1,0 +1,22 @@
+router.get("/get-post-all-comments", postsController.getPostAllComments);
+/**
+ * @swagger
+ * /posts/get-post-all-comments:
+ *   get:
+ *      description: Used to get all comment of given post id
+ *      tags:
+ *          - posts
+ *      parameters:
+ *          - in: query
+ *            name: postId
+ *            type: integer
+ *            description: Post id
+ *            required: true
+ *      responses:
+ *          '200':
+ *              description: Resource added successfully
+ *          '500':
+ *              description: Internal server error
+ *          '400':
+ *              description: Bad request
+ */

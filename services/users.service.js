@@ -18,7 +18,7 @@ exports.register = (data,callback)=>{
 exports.login = (data, callback) => {
     pool.query(
         `SELECT id_Usuario FROM Usuarios WHERE Email= ? AND Pwd = ?;`,
-        [data.Email, data.Pwd],
+        [data.email, data.pwd],
         (error, results, fields) => {
             if (error) {
                 return callback(error);
