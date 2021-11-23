@@ -1,7 +1,5 @@
 const postsService = require('../services/posts.service');
 
-
-
 //Postear una nueva publicacion
 exports.addPost = (req, res, next) => {
     const data = {
@@ -55,7 +53,7 @@ exports.getPostAllComments = (req, res, next) => {
     const data = {
         postId: req.query.postId,
     };
-    postsService.getPostAllComments(data, (error, results) => {
+    postsService.getPostsAllComments(data, (error, results) => {
         if (error) {
             console.log(error);
             return res.status(400).json({ success: 0, data: "Bad request" })
@@ -69,7 +67,7 @@ exports.likePost = (req, res, next) => {
     const data = {
         postId: req.body.postId,
     };
-    postService.likePost(data, (error, results) => {
+    postsService.likePost(data, (error, results) => {
         if (error) {
             console.log(error);
             return res.status(400).json({ success: 0, data: "Bad request" })
@@ -83,7 +81,7 @@ exports.dislikePost = (req, res, next) => {
     const data = {
         postId: req.body.postId,
     };
-    postService.dislikePost(data, (error, results) => {
+    postsService.dislikePost(data, (error, results) => {
         if (error) {
             console.log(error);
             return res.status(400).json({ success: 0, data: "Bad request" })
@@ -97,7 +95,7 @@ exports.deletePost = (req, res, next) => {
     const data = {
         postId: req.query.postId,
     };
-    postService.deletePost(data, (error, results) => {
+    postsService.deletePost(data, (error, results) => {
         if (error) {
             console.log(error);
             return res.status(400).json({ success: 0, data: "Bad request" })

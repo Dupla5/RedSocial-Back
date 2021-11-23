@@ -15,12 +15,16 @@ app.set('config', path.join(__dirname, 'config'));
 app.use(cors({ origin: '*', allowHeader: ['Content-Type', 'Authorization'] }));
 
 //Rutas
+let lenguagesRoutes = require('./routes/lenguages.route.js');
+let hobbiesRoutes = require('./routes/hobbies.route');
 let postsRoutes = require('./routes/posts.route');
 let usersRoutes = require('./routes/users.route');
 
 
 app.use('/users', usersRoutes);
 app.use('/posts', postsRoutes);
+app.use('/hobbies',hobbiesRoutes);
+app.use('/lenguages', lenguagesRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
