@@ -2,18 +2,18 @@ const express = require('express');
 const lenguagesController = require('../controllers/lenguages.controller');
 const router = express.Router();
 
-/*Rutas de hobbies*/
+/*Rutas de lenguajes*/
 
-//Mostrar hobbies
+//Mostrar lenguajes
 router.get('/get-all-lenguages', lenguagesController.getAllLenguages);
 
-//Agregar hobbie
+//Agregarlenguajes
 router.post('/add-lenguages', lenguagesController.addLenguages);
 
-//Borrar hobbie
+//Borrarlenguajes
 router.delete('/delete-lenguages', lenguagesController.deleteLenguages);
 
-//Actualizar hobbie
+//Actualizarlenguajes
 router.put('/update-lenguages', lenguagesController.updateLenguages);
 
 module.exports = router;
