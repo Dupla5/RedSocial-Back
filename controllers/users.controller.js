@@ -45,7 +45,7 @@ exports.login = (req, res, next) => {
                 success: 0,
                 data: "Bad request"
             })
-        }
+        }     
         return res.status(201).json({
             success: 1,
             data: results

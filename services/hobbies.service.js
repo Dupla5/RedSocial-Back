@@ -17,7 +17,7 @@ exports.addHobbies = (data, callback) => {
 //Mostrar todas los hobbies
 exports.getAllHobbies = (data, callback) => {
     pool.query(
-        'SELECT Nombre_hobbie , Tiempo_practicado FROM Hobbies WHERE id_Usuario = ?',
+        'SELECT id_Hobbies, Nombre_hobbie , Tiempo_practicado FROM Hobbies WHERE id_Usuario = ?',
         [data.idUsuario],
         (error, results, fields) => {
             if (error) {

@@ -84,6 +84,11 @@ ALTER TABLE Usuarios CHANGE COLUMN Perfil_Linkedin Perfil_Linkedin VARCHAR(40);
 DESCRIBE Usuarios;
 SELECT c.Post_Id, c.Comentario , c.FechaDePublicacion, c.id_Usuario , u.Nombre, u.A_Paterno FROM Comentarios AS c INNER JOIN Usuarios AS u ON c.id_Usuario = u.id_Usuario WHERE c.Post_Id = 1;
 SELECT * FROM Comentarios WHERE Post_Id = 1;
+SELECT * FROM Posts;
+SELECT * FROM Hobbies;
+SELECT * FROM Idiomas;
+SELECT * FROM Estudios;
+DESCRIBE Posts;
 
 #ENGINE=InnoDB DEFAULT CHARSET=utf8
 #create_at TIMESTAMP NOT NULL DEFAULT current_timestamp,
