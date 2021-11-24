@@ -17,7 +17,7 @@ exports.addStudies = (data, callback) => {
 //Mostrar todos los estudios
 exports.getAllStudies = (data, callback) => {
     pool.query(
-        'SELECT Escuela , Grado_Estudios, Carrera_Cursada FROM Estudios WHERE id_Usuario = ?',
+        'SELECT id_Estudios, Escuela , Grado_Estudios, Carrera_Cursada FROM Estudios WHERE id_Usuario = ?',
         [data.idUsuario],
         (error, results, fields) => {
             if (error) {

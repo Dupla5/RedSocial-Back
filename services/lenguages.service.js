@@ -17,8 +17,8 @@ exports.addLenguages = (data, callback) => {
 //Mostrar todas los lenguajes
 exports.getAllLenguages = (data, callback) => {
     pool.query(
-        'SELECT i.id_Idioma, i.Nombre_idioma , i.Nivel, i.Certificacion FROM Idiomas AS i WHERE id_Idioma = ?',
-        [data.idIdioma],
+        'SELECT i.id_Idioma, i.Nombre_idioma , i.Nivel, i.Certificacion FROM Idiomas AS i WHERE id_Usuario = ?',
+        [data.idUsuario],
         (error, results, fields) => {
             if (error) {
                 return callback(error);

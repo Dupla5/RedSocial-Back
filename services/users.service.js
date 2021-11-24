@@ -32,3 +32,17 @@ exports.login = (data, callback) => {
         }
     )
 }
+
+//Actualizar usuario
+exports.updateUser = (data, callback) => {
+    pool.query(
+        `UPDATE Usuarios SET Nombre = ?,A_Paterno = ?,A_Materno = ?,Ciudad = ?,Pais = ?,Edad= ?,Email=? , Pwd =?, Perfil_Linkedin = ? WHERE id_Usuario = ?;`,
+        [data.Nombre, data.A_paterno, data.A_materno, data.Ciudad, data.Pais, data.Edad, data.Email, data.Pwd, data.Linkedin, data.idUsuario],
+        (error, results, fields) => {
+            if (error) {
+                return callback(error);
+            }
+            return callback(null, "Usuario Actualizado");
+        }
+    )
+}

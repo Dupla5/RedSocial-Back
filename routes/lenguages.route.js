@@ -125,7 +125,7 @@ router.put('/update-lenguages', lenguagesController.updateLenguages);
  *                 - idIdioma
  *              properties:
  *                  nombre:
- *                      type: integer
+ *                      type: string
  *                      minLength: 1
  *                      maxLength: 30
  *                      example: Ruso
@@ -141,7 +141,7 @@ router.put('/update-lenguages', lenguagesController.updateLenguages);
  *                      example: Ninguna
  *                  idIdioma:
  *                      type: integer
- *                      example: 2
+ *                      example: 3
  *
  *      responses:
  *          '200':
