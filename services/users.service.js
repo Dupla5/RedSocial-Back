@@ -9,7 +9,7 @@ exports.register = (data,callback)=>{
             if(error) {
                 return callback(error);
             }
-            return callback(null,"Registro Completado");
+            return callback(null,results);
         }
     )
 }
