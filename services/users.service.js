@@ -24,7 +24,7 @@ exports.login = (data, callback) => {
                 return callback(error);
             }
             if(results.length > 0) {
-                return callback(null, "Inicio de sesion exitoso");
+                return callback(null, results);
             }else{
                 return callback(null, "Datos incorrectos");
             }
@@ -33,16 +33,36 @@ exports.login = (data, callback) => {
     )
 }
 
+
+//Obtener datos de usuario
+exports.getUser = (data, callback) => {
+    pool.query(
+        `SELECT * FROM Usuarios WHERE id_Usuario = ?`,
+        [data.idUsuario],
+        (error, results, fields) => {
+            if (error) {
+                return callback(error);
+            }
+            if (results.length > 0) {
+                return callback(null, results);
+            } else {
+                return callback(null, "Datos incorrectos");
+            }
+
+        }
+    )
+}
+
 //Actualizar usuario
 exports.updateUser = (data, callback) => {
     pool.query(
-        `UPDATE Usuarios SET Nombre = ?,A_Paterno = ?,A_Materno = ?,Ciudad = ?,Pais = ?,Edad= ?,Email=? , Pwd =?, Perfil_Linkedin = ? WHERE id_Usuario = ?;`,
+        `UPDATE Usuarios SET Nombre = ?, A_Paterno = ?, A_Materno = ?, Ciudad = ?, Pais = ?, Edad= ?, Email=? , Pwd =?, Perfil_Linkedin = ? WHERE id_Usuario = ?`,
         [data.Nombre, data.A_paterno, data.A_materno, data.Ciudad, data.Pais, data.Edad, data.Email, data.Pwd, data.Linkedin, data.idUsuario],
         (error, results, fields) => {
             if (error) {
                 return callback(error);
             }
-            return callback(null, "Usuario Actualizado");
+            return callback(null, results);
         }
     )
 }

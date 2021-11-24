@@ -4,6 +4,29 @@ const usersController = require('../controllers/users.controller');
 
 
 /* Rutas Usuario. */
+router.get('/getUser',usersController.getUser);
+
+/**
+ * @swagger
+ * /users/getUser:
+ *   get:
+ *      description: Obtener Usuario
+ *      tags:
+ *          - Usuarios
+ *      parameters:
+ *          - in: query
+ *            name: idUsuario
+ *            description: User data
+ *            required: true
+ *      responses:
+ *          '200':
+ *              description: Resource added successfully
+ *          '500':
+ *              description: Internal server error
+ *          '400':
+ *              description: Bad request
+ */
+
 //Registro de Usuario
 router.post('/register',usersController.register);
 
@@ -124,7 +147,7 @@ router.put('/update-user', usersController.updateUser);
  * @swagger
  * /users/update-user:
  *   put:
- *      description: Actualizar Usuario
+ *      description: Actualizar usuario
  *      tags:
  *          - Usuarios
  *      parameters:
@@ -154,25 +177,25 @@ router.put('/update-user', usersController.updateUser);
  *                      type: string
  *                      minLength: 1
  *                      maxLength: 30
- *                      example: Salvador
+ *                      example: Cordoba
  *                  a_materno:
  *                      type: string
  *                      minLength: 1
  *                      maxLength: 30
- *                      example: Rodriguez
+ *                      example: Sanchez
  *                  ciudad:
  *                      type: string
  *                      minLength: 1
  *                      maxLength: 30
- *                      example: Medellin
+ *                      example: Sevilla
  *                  pais:
  *                      type: string
  *                      minLength: 1
  *                      maxLength: 30
- *                      example: Ecuador
+ *                      example: España
  *                  edad:
  *                      type: int
- *                      example: 30
+ *                      example: 95
  *                  email:
  *                      type: string
  *                      minLength: 1
@@ -182,15 +205,16 @@ router.put('/update-user', usersController.updateUser);
  *                      type: string
  *                      minLength: 1
  *                      maxLength: 20
- *                      example: password
+ *                      example: password25
  *                  linkedin:
  *                      type: string
  *                      minLength: 1
- *                      maxLength: 40
- *                      example: www.linkedin.com/in/marcos-eduardo-miranda-bravo/
+ *                      maxLength: 30
+ *                      example: https://www.linkedin.com/in/rafa-soriano/
  *                  idUsuario:
- *                      type:integer
- *                      example:2
+ *                      type: int
+ *                      example: 1
+ * 
  *      responses:
  *          '200':
  *              description: Resource added successfully
@@ -199,5 +223,6 @@ router.put('/update-user', usersController.updateUser);
  *          '400':
  *              description: Bad request
  */
+
 
 module.exports = router;
