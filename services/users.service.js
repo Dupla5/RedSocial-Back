@@ -9,7 +9,7 @@ exports.register = (data,callback)=>{
             if(error) {
                 return callback(error);
             }
-            return callback(null,results);
+            return callback(null,"Registro Completado");
         }
     )
 }
@@ -29,6 +29,24 @@ exports.login = (data, callback) => {
                 return callback(null, "Datos incorrectos");
             }
             
+        }
+    )
+}
+
+exports.getAllUsers = (data,callback) => {
+    pool.query(
+        `SELECT * FROM Usuarios`,
+        [],
+        (error, results, fields) => {
+            if (error) {
+                return callback(error);
+            }
+            if (results.length > 0) {
+                return callback(null, results);
+            } else {
+                return callback(null, "Datos incorrectos");
+            }
+
         }
     )
 }

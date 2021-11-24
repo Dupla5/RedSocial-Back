@@ -53,6 +53,25 @@ exports.login = (req, res, next) => {
     })
 }
 
+//Obtener todos los usuario
+exports.getAllUsers = (req, res) => {
+    //Area de validación
+    const data = {};
+    usersService.getAllUsers(data, (error, results) => {
+        if (error) {
+            console.log(error);
+            return res.status(400).json({
+                success: 0,
+                data: "Bad request"
+            })
+        }
+        return res.status(201).json({
+            success: 1,
+            data: results
+        })
+    })
+}
+
 //Obtener usuario
 exports.getUser = (req, res, next) => {
     //Area de validación

@@ -4,6 +4,25 @@ const usersController = require('../controllers/users.controller');
 
 
 /* Rutas Usuario. */
+//Obtener todos los usuarios
+router.get('/get-all-users', usersController.getAllUsers);
+/**
+ * @swagger
+ * /users/get-all-users:
+ *   get:
+ *      description: Mostrar todos los usuarios
+ *      tags:
+ *          - Usuarios
+ *      responses:
+ *          '200':
+ *              description: Resource added successfully
+ *          '500':
+ *              description: Internal server error
+ *          '400':
+ *              description: Bad request
+ */
+
+//Obtener un usuario
 router.get('/getUser',usersController.getUser);
 
 /**
