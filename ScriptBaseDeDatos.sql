@@ -1,6 +1,6 @@
 DROP TABLE Usuarios;
 DROP TABLE Estudios;
-DROP TABLE hobbies;
+DROP TABLE Hobbies;
 DROP TABLE Idiomas;
 DROP TABLE Posts;
 DROP TABLE Comentarios;
@@ -14,22 +14,17 @@ CREATE TABLE Usuarios (
     Ciudad VARCHAR(30) NOT NULL,
     Pais VARCHAR(30) NOT NULL,
     Edad int NOT NULL,
-    Email VARCHAR(30) NOT NULL,
+    Email VARCHAR(35) NOT NULL,
     Pwd VARCHAR(20) NOT NULL,
-    Perfil_Linkedin VARCHAR(40),
+    Perfil_Linkedin VARCHAR(60),
     Img_Perfil blob,
     create_at TIMESTAMP NOT NULL DEFAULT current_timestamp
 );
 
-INSERT INTO Usuarios (Nombre,A_Paterno,A_Materno,Ciudad,Pais,Edad,Email,Pwd) VALUES
-("Marcos","Miranda","Bravo","Ecatepec","Mexico",25,"markuzemb18@gmail.com","12345");
-
-SELECT * FROM Usuarios;
-
 CREATE TABLE Hobbies (
 	id_Hobbies INT AUTO_INCREMENT PRIMARY KEY,
-	Nombre_hobbie VARCHAR(15),
-	Tiempo_practicado VARCHAR(15),
+	Nombre_hobbie VARCHAR(25),
+	Tiempo_practicado VARCHAR(30),
 	id_Usuario INT,
 	CONSTRAINT FKUsuarios_hobbies FOREIGN KEY (id_Usuario) REFERENCES Usuarios (id_Usuario) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -45,12 +40,21 @@ CREATE TABLE Idiomas (
 
 CREATE TABLE Estudios(
 	id_Estudios INT AUTO_INCREMENT PRIMARY KEY,
-	Escuela VARCHAR(40),
-	Grado_Estudios VARCHAR(40),
-	Carrera_Cursada VARCHAR(50),
+	Escuela VARCHAR(100),
+	Grado_Estudios VARCHAR(50),
+	Carrera_Cursada VARCHAR(80),
 	id_Usuario INT,        
 	CONSTRAINT FKUsuario_estudios FOREIGN KEY (id_Usuario) REFERENCES Usuarios(id_Usuario) ON DELETE CASCADE ON UPDATE CASCADE
 ); 
+
+CREATE TABLE Cursos(
+	id_Curso INT AUTO_INCREMENT PRIMARY KEY,
+    lugar VARCHAR(150),
+    fechaComienzo VARCHAR(12),
+    fechaFinalizacion VARCHAR(12),
+    id_Usuario INT,
+    CONSTRAINT FKUsuario_cursos FOREIGN KEY (id_Usuario) REFERENCES Usuarios(id_Usuario) ON DELETE CASCADE ON UPDATE CASCADE
+);
 
 CREATE TABLE Posts (
   id_Post INT AUTO_INCREMENT PRIMARY KEY,
@@ -63,8 +67,6 @@ CREATE TABLE Posts (
   CONSTRAINT FKUsuario_posts FOREIGN KEY (id_Usuario) REFERENCES Usuarios(id_Usuario) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-SELECT * FROM Comentarios;
-
 CREATE TABLE Comentarios (
   id_Comentario INT AUTO_INCREMENT PRIMARY KEY,
   Post_Id INT NOT NULL,
@@ -76,19 +78,12 @@ CREATE TABLE Comentarios (
 );
 
 
-
-ALTER TABLE Usuarios ADD pwd varchar(10) not null;
-ALTER TABLE Usuarios CHANGE COLUMN Img_Perfil Img_Perfil blob;
-ALTER TABLE Usuarios CHANGE COLUMN Perfil_Linkedin Perfil_Linkedin VARCHAR(40);
-
-DESCRIBE Usuarios;
-SELECT c.Post_Id, c.Comentario , c.FechaDePublicacion, c.id_Usuario , u.Nombre, u.A_Paterno FROM Comentarios AS c INNER JOIN Usuarios AS u ON c.id_Usuario = u.id_Usuario WHERE c.Post_Id = 1;
-SELECT * FROM Comentarios WHERE Post_Id = 1;
+SELECT * FROM Usuarios;
+SELECT * FROM Comentarios;
 SELECT * FROM Posts;
 SELECT * FROM Hobbies;
 SELECT * FROM Idiomas;
 SELECT * FROM Estudios;
-DESCRIBE Posts;
 
 #ENGINE=InnoDB DEFAULT CHARSET=utf8
 #create_at TIMESTAMP NOT NULL DEFAULT current_timestamp,
