@@ -21,8 +21,6 @@ router.post('/add-post', postsController.addPost);
  *              type: object
  *              required:
  *                 - descripcion
- *                 - contadorlikes
- *                 - contadordislikes
  *                 - idUsuario
  *              properties:
  *                  descripcion:
@@ -30,12 +28,6 @@ router.post('/add-post', postsController.addPost);
  *                      minLength: 1
  *                      maxLength: 1000
  *                      example: Una gran trabajo en equipo
- *                  contadorlikes:
- *                      type: int
- *                      example: 3
- *                  contadordislikes:
- *                      type: int
- *                      example: 5
  *                  idUsuario:
  *                      type: int
  *                      example: 1

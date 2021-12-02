@@ -4,8 +4,6 @@ const postsService = require('../services/posts.service');
 exports.addPost = (req, res, next) => {
     const data = {
         descripcion: req.body.descripcion,
-        contadorLikes: req.body.contadorlikes,
-        contadorDislikes: req.body.contadordislikes,
         idUsuario: req.body.idUsuario
     }
 
