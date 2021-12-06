@@ -3,6 +3,7 @@ const coursesService = require('../services/courses.service');
 //Postear un Curso
 exports.addCourses = (req, res, next) => {
     const data = {
+        nombre: req.body.nombre,
         lugar: req.body.lugar,
         fechaComienzo: req.body.fechaComienzo,
         fechaFinalizacion: req.body.fechaFinalizacion,
@@ -53,6 +54,7 @@ exports.deleteCourses = (req, res, next) => {
 exports.updateCourses = (req, res, next) => {
     const data = {
         idCurso: req.body.idCurso,
+        nombre: req.body.nombre,
         lugar: req.body.lugar,
         fechaComienzo: req.body.fechaComienzo,
         fechaFinalizacion: req.body.fechaFinalizacion,

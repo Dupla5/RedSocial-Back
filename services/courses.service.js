@@ -2,9 +2,10 @@ const pool = require('../config/database');
 
 //Agregar un curso
 exports.addCourses = (data, callback) => {
+    console.log(data.nombre);
     pool.query(
-        'INSERT INTO Cursos (lugar,fechaComienzo,fechaFinalizacion,id_Usuario) VALUES (?,?,?,?)',
-        [data.lugar, data.fechaComienzo, data.fechaFinalizacion, data.idUsuario],
+        'INSERT INTO Cursos (nombre,lugar,fechaComienzo,fechaFinalizacion,id_Usuario) VALUES (?,?,?,?,?)',
+        [data.nombre, data.lugar, data.fechaComienzo, data.fechaFinalizacion, data.idUsuario],
         (error, results, fields) => {
             if (error) {
                 return callback(error);
@@ -17,7 +18,7 @@ exports.addCourses = (data, callback) => {
 //Mostrar todos los cursos
 exports.getAllCourses = (data, callback) => {
     pool.query(
-        'SELECT id_Curso, lugar , fechaComienzo , fechaFinalizacion FROM Cursos WHERE id_Usuario = ?',
+        'SELECT id_Curso, nombre, lugar , fechaComienzo , fechaFinalizacion FROM Cursos WHERE id_Usuario = ?',
         [data.idUsuario],
         (error, results, fields) => {
             if (error) {
@@ -46,8 +47,8 @@ exports.deleteStudies = (data, callback) => {
 //Actualizar curso
 exports.updateCourses = (data, callback) => {
     pool.query(
-        `UPDATE Cursos SET lugar = ? , fechaComienzo = ? , fechaFinalizacion = ?  WHERE id_Curso = ?`,
-        [data.lugar, data.fechaComienzo, data.fechaFinalizacion, data.idCurso],
+        `UPDATE Cursos SET nombre = ? , lugar = ? , fechaComienzo = ? , fechaFinalizacion = ?  WHERE id_Curso = ?`,
+        [data.nombre, data.lugar, data.fechaComienzo, data.fechaFinalizacion, data.idCurso],
         (error, results, fields) => {
             if (error) {
                 return callback(error);

@@ -97,17 +97,16 @@ exports.getUser = (req, res, next) => {
 
 //Actualizar Usuario
 exports.updateUser = (req, res, next) => {
-    //Area de validación
     const data = {
-        Nombre: req.body.nombre,
-        A_paterno: req.body.a_paterno,
-        A_materno: req.body.a_materno,
-        Ciudad: req.body.ciudad,
-        Pais: req.body.pais,
-        Edad: req.body.edad,
-        Email: req.body.email,
-        Pwd: req.body.pwd,
-        Linkedin: req.body.linkedin,
+        nombre: req.body.nombre,
+        a_paterno: req.body.a_paterno,
+        a_materno: req.body.a_materno,
+        ciudad: req.body.ciudad,
+        pais: req.body.pais,
+        edad: req.body.edad,
+        email: req.body.email,
+        pwd: req.body.pwd,
+        linkedin: req.body.linkedin,
         idUsuario : req.body.idUsuario,
     };
 

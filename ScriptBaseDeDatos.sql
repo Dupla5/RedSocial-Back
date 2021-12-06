@@ -4,6 +4,7 @@ DROP TABLE Hobbies;
 DROP TABLE Idiomas;
 DROP TABLE Posts;
 DROP TABLE Comentarios;
+DROP TABLE Cursos;
 
 #Creacion de Tablas
 CREATE TABLE Usuarios (
@@ -49,6 +50,7 @@ CREATE TABLE Estudios(
 
 CREATE TABLE Cursos(
 	id_Curso INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(30),
     lugar VARCHAR(150),
     fechaComienzo VARCHAR(12),
     fechaFinalizacion VARCHAR(12),
@@ -77,6 +79,9 @@ CREATE TABLE Comentarios (
   CONSTRAINT FKPostId_comentario FOREIGN KEY (Post_Id) REFERENCES  Posts(id_Post) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+INSERT INTO Cursos (nombre,lugar)
+VALUES 
+('REACT','Colombia');
 
 SELECT * FROM Usuarios;
 SELECT * FROM Comentarios;
@@ -84,6 +89,7 @@ SELECT * FROM Posts;
 SELECT * FROM Hobbies;
 SELECT * FROM Idiomas;
 SELECT * FROM Estudios;
+SELECT * FROM Cursos;
 
 #ENGINE=InnoDB DEFAULT CHARSET=utf8
 #create_at TIMESTAMP NOT NULL DEFAULT current_timestamp,

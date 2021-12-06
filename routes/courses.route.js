@@ -45,27 +45,33 @@ router.post('/add-courses', coursesController.addCourses);
  *            schema:
  *              type: object
  *              required:
+ *                 - nombre
  *                 - lugar
  *                 - fechaComienzo
  *                 - fechaFinalizacion
  *                 - idUsuario
  *              properties:
- *                  lugar:
+ *                   nombre:
+ *                      type: string
+ *                      minLength: 1
+ *                      maxLength: 30
+ *                      example: React
+ *                   lugar:
  *                      type: string
  *                      minLength: 1
  *                      maxLength: 150
  *                      example: Tecla
- *                  fechaComienzo:
+ *                   fechaComienzo:
  *                      type: string
  *                      minLength: 1
  *                      maxLength: 12
  *                      example: 2017/10/25
- *                  fechaFinalizacion:
+ *                   fechaFinalizacion:
  *                      type: string
  *                      minLength: 1
  *                      maxLength: 12
  *                      example: 2018/03/12
- *                  idUsuario:
+ *                   idUsuario:
  *                      type: integer
  *                      example: 1           
  *      responses:
