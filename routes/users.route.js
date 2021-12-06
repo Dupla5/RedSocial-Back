@@ -218,7 +218,7 @@ router.put('/update-user', usersController.updateUser);
  *                   email:
  *                      type: string
  *                      minLength: 1
- *                      maxLength: 30
+ *                      maxLength: 35
  *                      example: efgh@mail.com
  *                   pwd:
  *                      type: string
@@ -228,7 +228,7 @@ router.put('/update-user', usersController.updateUser);
  *                   linkedin:
  *                      type: string
  *                      minLength: 1
- *                      maxLength: 30
+ *                      maxLength: 100
  *                      example: https://www.linkedin.com/in/rafa-soriano/
  *                   idUsuario:
  *                      type: int

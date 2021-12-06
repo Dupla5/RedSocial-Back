@@ -79,9 +79,10 @@ CREATE TABLE Comentarios (
   CONSTRAINT FKPostId_comentario FOREIGN KEY (Post_Id) REFERENCES  Posts(id_Post) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO Cursos (nombre,lugar)
-VALUES 
-('REACT','Colombia');
+#Modificamos el perfil de linkedin a 100
+ALTER TABLE Usuarios MODIFY COLUMN Perfil_Linkedin VARCHAR(100); 
+
+DESCRIBE Usuarios;
 
 SELECT * FROM Usuarios;
 SELECT * FROM Comentarios;
