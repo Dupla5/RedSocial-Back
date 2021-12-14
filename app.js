@@ -37,7 +37,8 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 
 //Rutas
-let coursesRoutes = require('./routes/courses.route.js')
+let helpsRoutes = require('./routes/helps.route.js');
+let coursesRoutes = require('./routes/courses.route.js');
 let studiesRoutes = require('./routes/studies.route.js');
 let lenguagesRoutes = require('./routes/lenguages.route.js');
 let hobbiesRoutes = require('./routes/hobbies.route');
@@ -51,6 +52,7 @@ app.use('/hobbies',hobbiesRoutes);
 app.use('/lenguages', lenguagesRoutes);
 app.use('/studies', studiesRoutes);
 app.use('/courses',coursesRoutes);
+app.use('/helps', helpsRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

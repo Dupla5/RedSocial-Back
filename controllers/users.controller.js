@@ -2,7 +2,6 @@ const usersService = require('../services/users.service');
 
 //Registro de nuevo usuario
 exports.register = (req,res,next)=>{
-    //Area de validación
     const data = {
         Nombre : req.body.nombre,
         A_paterno : req.body.a_paterno,
@@ -32,7 +31,6 @@ exports.register = (req,res,next)=>{
 
 //Inicio de sesion de usuario
 exports.login = (req, res, next) => {
-    //Area de validación
     const data = {
         email: req.body.email,
         pwd: req.body.pwd
@@ -55,7 +53,6 @@ exports.login = (req, res, next) => {
 
 //Obtener todos los usuario
 exports.getAllUsers = (req, res) => {
-    //Area de validación
     const data = {};
     usersService.getAllUsers(data, (error, results) => {
         if (error) {
