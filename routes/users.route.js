@@ -185,6 +185,7 @@ router.put('/update-user', usersController.updateUser);
  *                 - email
  *                 - pwd
  *                 - linkedin
+ *                 - imgPerfil
  *                 - idUsuario
  *              properties:
  *                   nombre:
@@ -230,6 +231,11 @@ router.put('/update-user', usersController.updateUser);
  *                      minLength: 1
  *                      maxLength: 100
  *                      example: https://www.linkedin.com/in/rafa-soriano/
+ *                   url:
+ *                      type: string
+ *                      minLength: 1
+ *                      maxLength: 200
+ *                      example: https://res.cloudinary.com/dmer2ipn0/image/upload/v1641068321/v6yinsqqgwcvlgqnifaw.png
  *                   idUsuario:
  *                      type: int
  *                      example: 1

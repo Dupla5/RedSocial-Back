@@ -74,8 +74,8 @@ exports.getUser = (data, callback) => {
 //Actualizar usuario
 exports.updateUser = (data, callback) => {
     pool.query(
-        'UPDATE Usuarios SET Nombre = ?, A_Paterno = ?, A_Materno = ?, Ciudad = ?, Pais = ?, Edad= ?, Email= ? , Pwd = ?, Perfil_Linkedin = ? WHERE id_Usuario = ?',
-        [data.nombre, data.a_paterno, data.a_materno, data.ciudad, data.pais, data.edad, data.email, data.pwd, data.linkedin, data.idUsuario],
+        'UPDATE Usuarios SET Nombre = ?, A_Paterno = ?, A_Materno = ?, Ciudad = ?, Pais = ?, Edad= ?, Email= ? , Pwd = ?, Perfil_Linkedin = ?, Img_Perfil = ? WHERE id_Usuario = ?',
+        [data.nombre, data.a_paterno, data.a_materno, data.ciudad, data.pais, data.edad, data.email, data.pwd, data.linkedin,data.imgPerfil, data.idUsuario],
         (error, results, fields) => {
             if (error) {
                 return callback(error);

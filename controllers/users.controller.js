@@ -10,7 +10,7 @@ exports.register = (req,res,next)=>{
         Pais : req.body.pais,
         Edad: req.body.edad,
         Email : req.body.email,
-        Pwd : req.body.pwd
+        Pwd : req.body.pwd,
     };
 
     usersService.register(data,(error,results)=>{
@@ -104,6 +104,7 @@ exports.updateUser = (req, res, next) => {
         email: req.body.email,
         pwd: req.body.pwd,
         linkedin: req.body.linkedin,
+        imgPerfil: req.body.url,
         idUsuario : req.body.idUsuario,
     };
 
