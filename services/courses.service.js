@@ -30,7 +30,7 @@ exports.getAllCourses = (data, callback) => {
 }
 
 //Eliminar un curso
-exports.deleteStudies = (data, callback) => {
+exports.deleteCourses = (data, callback) => {
     pool.query(
         'DELETE FROM Cursos WHERE id_Curso = ?',
         [data.idCurso],
