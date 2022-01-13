@@ -45,7 +45,7 @@ exports.addPostComment = (data, callback) => {
 //Obtener todos los comentarios de una publicacion
 exports.getPostsAllComments = (data, callback) => {
     pool.query(
-        `SELECT c.Post_Id, c.Comentario , c.FechaDePublicacion, c.id_Usuario , u.Nombre, u.A_Paterno FROM Comentarios AS c INNER JOIN Usuarios AS u ON c.id_Usuario = u.id_Usuario WHERE c.Post_Id = ?`,
+        `SELECT id_Comentario,Post_Id, Comentario , FechaDePublicacion, id_Usuario , Nombre, A_Paterno FROM Comentarios INNER JOIN Usuarios ON id_Usuario = id_Usuario WHERE Post_Id = ?`,
         [data.postId],
         (error, results, fields) => {
             if (error) {
